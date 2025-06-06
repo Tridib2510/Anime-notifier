@@ -3,3 +3,4 @@ datetime
 flask
 zoneinfo
 gunicorn
+backports.zoneinfo==0.2.1
