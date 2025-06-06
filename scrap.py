@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from datetime import date
 import pytz
+import re
 
 import requests
 
