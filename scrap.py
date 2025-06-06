@@ -13,7 +13,7 @@ from zoneinfo import ZoneInfo
 from flask import Flask,jsonify
 
 app=Flask(__name__)
-
+ 
 url = "https://www.livechart.me/summer-2025/tv"
 headers = {'User-Agent': 'Mozilla/5.0'}  # Optional but recommended to avoid being blocked
 response = requests.get(url, headers=headers)
