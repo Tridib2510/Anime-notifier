@@ -26,22 +26,19 @@ soup = BeautifulSoup(html_content, 'html.parser')
 
 def convert(date_str):
     try:
-      date_str_clean = date_str.replace("at ", "").replace(" IST", "")
-
-# Parse the datetime without timezone
-      dt_naive = datetime.strptime(date_str_clean, "%b %d, %Y %I:%M%p")
-
-# Define the IST timezone (Indian Standard Time is UTC+5:30)
-      ist = pytz.timezone('Asia/Kolkata')
-
-# Localize the naive datetime to IST
-      dt_ist = ist.localize(dt_naive)
-
-      return str(dt_ist)
+        date_str_clean = date_str.replace('at', '').strip()
+        date_str_clean = re.sub(' +', ' ', date_str_clean)  # Replace multiple spaces with one
+        # Remove timezone abbreviation (last 3 chars, e.g. "PDT")
+        date_str_clean = date_str_clean[:-4].strip()
+        dt_naive = datetime.strptime(date_str_clean, "%b %d, %Y %I:%M%p")
+        pdt = pytz.timezone('US/Pacific')
+        dt_pdt = pdt.localize(dt_naive)
+        ist = pytz.timezone('Asia/Kolkata')
+        dt_ist = dt_pdt.astimezone(ist)
+        return str(dt_ist)
+    except Exception as e:
+        return None
     
-    except ValueError as e:
-     
-      return None
 def compare_CurrentTime(date_str):
     time=str(date.today())
     year=int(time[0:4])
