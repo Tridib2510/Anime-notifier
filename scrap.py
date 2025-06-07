@@ -64,19 +64,23 @@ def welcome():
              for divs in div:
                  time=divs.find('a',class_='episode-countdown')
                  countdown=time.find('time')
+                 image=divs.find('img')
                  if countdown:
                       timer_timestamp=countdown.get('data-timestamp')
                       if timer_timestamp and timer_timestamp.isdigit():
                          timer_value =int(countdown.get('data-timestamp'))
                          dt_utc = datetime.utcfromtimestamp(timer_value)
+                         
                         #  print(title.get_text(strip=True))
                         #  print("UTC Date and Time:", dt_utc,'\n')
+                         print(image.get('src'),'\n')
                          result.append({
                               "title":title.get_text(strip=True),
-                              "date": dt_utc
+                              "date": dt_utc,
+                              "image":image.get('src')
                          })
 
-        print(result)
+        
         return jsonify({"List":result})
              
       
