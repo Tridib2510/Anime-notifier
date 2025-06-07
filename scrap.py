@@ -58,20 +58,24 @@ def welcome():
         for article in articles:
       # print(article.get_text(strip=True))
              classes = article.get('class', [])
-             div=article.find_all('div',class_='anime-date')
+             div=article.find_all('div',class_='poster-container')
              title=article.find_all('h3')[0].find_all('a')[0]
              
              for divs in div:
-                 time =convert(divs.get_text(strip=True))
-                 if time!=None:
-                     year=int(time[0:4])
-                     month=int(time[5:7])
-                     day=int(time[8:10])
-                     print(title.get_text(strip=True))                     
-                     result.append({
-                       "title": title.get_text(strip=True),
-                        "Date": f"Year: {year}, Month: {month}, Day: {day}"
-                       })
+                 time=divs.find('a',class_='episode-countdown')
+                 countdown=time.find('time')
+                 if countdown:
+                      timer_timestamp=countdown.get('data-timestamp')
+                      if timer_timestamp and timer_timestamp.isdigit():
+                         timer_value =int(countdown.get('data-timestamp'))
+                         dt_utc = datetime.utcfromtimestamp(timer_value)
+                        #  print(title.get_text(strip=True))
+                        #  print("UTC Date and Time:", dt_utc,'\n')
+                         result.append({
+                              "title":title.get_text(strip=True),
+                              "date": dt_utc
+                         })
+
         print(result)
         return jsonify({"List":result})
              
@@ -81,4 +85,5 @@ def welcome():
 
 
 if __name__=="__main__":
-     app.run()
+     
+     app.run(debug=True)
