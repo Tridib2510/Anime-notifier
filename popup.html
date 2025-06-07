@@ -5,13 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+   
+
+
+<style>
+    .parent {
+        background-color: #555;
+  display: flex;
+  justify-content: space-between; /* pushes children to left and right edges */
+  border: 1px solid #ccc;
+  padding: 10px;
+  min-height: 250px;
+  min-width: 300px;
+ 
+  gap:2px
+  
+}
+
+.child {
+  padding: 5px 10px;
+  background-color: #eee;
+  border: 2px solid white;
+  
+}
+
+
+</style>
+    
 <body>
-   <div id="anime" class="anime" 
-     style="display: flex; flex-direction: column; 
-            min-height: 500px; max-height: 500px; 
-            min-width: 500px; overflow-y: auto; overflow-x: hidden; 
-            gap: 10px;">
-</div>
-    <script src="popup.js"></script>
+    <div class="countdown flex justify-center" id="countdown2">
+    <div class="bg-gray-50 rounded-lg shadow-lg px-8 py-6">
+        <div class="flex flex-col gap-4 items-center justify-between">
+            <h3 class="text-2xl font-bold text-gray-700">Countdown Timer</h3>
+            <span id="countdown" class="text-2xl font-semibold text-gray-700"></span>
+        </div>
+     
+    <script defer src="popup.js"></script>
 </body>
 </html>

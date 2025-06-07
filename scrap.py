@@ -70,10 +70,10 @@ def welcome():
                       if timer_timestamp and timer_timestamp.isdigit():
                          timer_value =int(countdown.get('data-timestamp'))
                          dt_utc = datetime.utcfromtimestamp(timer_value)
-                         
+                         print(dt_utc,'\n')
                         #  print(title.get_text(strip=True))
                         #  print("UTC Date and Time:", dt_utc,'\n')
-                         print(image.get('src'),'\n')
+                         
                          result.append({
                               "title":title.get_text(strip=True),
                               "date": dt_utc,
