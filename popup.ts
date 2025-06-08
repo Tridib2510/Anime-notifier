@@ -89,8 +89,10 @@ const count = countdown_1?.cloneNode(true) as HTMLElement | null;
 
        anime?.appendChild(left)
        anime?.appendChild(right)
-
+       if(days<7){
+        
        document.body.appendChild(anime)
+       }
 
        
 

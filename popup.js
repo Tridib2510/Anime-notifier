@@ -60,7 +60,9 @@ fetch('https://anime-notifier-5.onrender.com')
         }
         anime === null || anime === void 0 ? void 0 : anime.appendChild(left);
         anime === null || anime === void 0 ? void 0 : anime.appendChild(right);
-        document.body.appendChild(anime);
+        if (days < 7) {
+            document.body.appendChild(anime);
+        }
     }
 })
     .catch(function (err) { return console.log(err); });
