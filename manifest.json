@@ -2,14 +2,22 @@
   "manifest_version": 3,
   "name": "Anime Notifier",
   "version": "1.0",
-  "description": "A simple Chrome extension example.",
+  "description": "Get the update on latest Anime.",
+    "icons": {
+    "16": "icons/icon.png",
+    "32": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+     },
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
       
     }
+   
   },
-  "permissions": ["scripting", "tabs"],
+  "permissions": ["scripting", "tabs", "notifications"],
+  
   "host_permissions": [
    "<all_urls>"
   ]

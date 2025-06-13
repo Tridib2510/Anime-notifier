@@ -95,7 +95,19 @@ const count = countdown_1?.cloneNode(true) as HTMLElement | null;
                     
 
                 // If the count down is over, write some text 
-                
+                let c:number=2
+                if (distance===0) {
+  // Timer reached zero, clear interval if any
+             c--;
+
+  // Create a notification
+     chrome.notifications.create({
+        type: 'basic',
+        iconUrl:'icons/icon.png',
+        title: 'Timer Finished',
+        message: 'Your countdown timer has reached zero!'
+    });
+}
                
             
             

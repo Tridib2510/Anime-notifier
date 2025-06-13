@@ -70,6 +70,18 @@ fetch('https://anime-notifier-5.onrender.com')
             a.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds +
                 "s ";
         // If the count down is over, write some text 
+        var c_1 = 2;
+        if (distance === 0) {
+            // Timer reached zero, clear interval if any
+            c_1--;
+            // Create a notification
+            chrome.notifications.create({
+                type: 'basic',
+                iconUrl: 'icons/icon.png',
+                title: 'Timer Finished',
+                message: 'Your countdown timer has reached zero!'
+            });
+        }
         // console.log(count)
         if (right && count) {
             right === null || right === void 0 ? void 0 : right.appendChild(count);
