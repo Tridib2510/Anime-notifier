@@ -3,6 +3,19 @@ const countdown_1=document.getElementById('countdown2')
 
   countdown_1?.parentNode?.removeChild(countdown_1)
   
+
+function monthNameToNumber(monthAbbr: string): number | null {
+    const months: { [key: string]: number } = {
+        Jan: 1, Feb: 2, Mar: 3, Apr: 4, May: 5, Jun: 6,
+        Jul: 7, Aug: 8, Sep: 9, Oct: 10, Nov: 11, Dec: 12
+    };
+    // Normalize input (capitalize first letter, lowercase next two)
+    const key = monthAbbr.charAt(0).toUpperCase() + monthAbbr.slice(1, 3).toLowerCase();
+    return months[key] ?? null; // Returns null if not found
+}
+
+
+
 fetch('https://anime-notifier-5.onrender.com')
 .then((res)=>res.json())
 .then(data=>{
@@ -36,13 +49,19 @@ const count = countdown_1?.cloneNode(true) as HTMLElement | null;
        right?.appendChild(date_h2)
   
        
-       const Month_date:string=`${date}`.substring(4,7)
+       const day_date:string=`${date}`.substring(5,7)
        const Month:string=`${date}`.substring(8,11)
        const year:string=`${date}`.substring(12,16)
        const timer:string=`${date}`.substring(17,25)
+        
+       const Month_date:number|null=monthNameToNumber(Month)
+       const Month_string=`${Month_date}`.length===1?`0${Month_date}`:`${Month_date}`
+
+  
       
-      
-       var countDownDate = new Date(`${Month} ${Month_date}, ${year} ${timer}`).getTime();
+     
+
+       var countDownDate = new Date(`${year}-${Month_string}-${day_date}T${timer}Z`).getTime();
       
         
             // Update the count down every 1 second
@@ -50,6 +69,7 @@ const count = countdown_1?.cloneNode(true) as HTMLElement | null;
 
                 // Get today's date and time
                 var now = new Date().getTime();
+                console.log(now)
 
                 // Find the distance between now and the count down date
                 var distance = countDownDate - now;
@@ -58,12 +78,14 @@ const count = countdown_1?.cloneNode(true) as HTMLElement | null;
               console.log(distance)
 
                 // Time calculations for days, hours, minutes and seconds
-                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                // Output the result in an element with id="countdown" 
+                 var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                distance -= days * (1000 * 60 * 60 * 24);
+                var hours = Math.floor(distance / (1000 * 60 * 60));
+                distance -= hours * (1000 * 60 * 60);
+               var minutes = Math.floor(distance / (1000 * 60));
+               distance -= minutes * (1000 * 60);
+                var seconds = Math.floor(distance / 1000);
+                 // Output the result in an element with id="countdown" 
                let a=null;
                 if(count)
                  a= count.querySelector("#countdown");
@@ -79,7 +101,7 @@ const count = countdown_1?.cloneNode(true) as HTMLElement | null;
             
            
             
-            console.log(count)
+            // console.log(count)
            
 
        if(right && count){
@@ -92,7 +114,7 @@ const count = countdown_1?.cloneNode(true) as HTMLElement | null;
        if(days<7){
         
        document.body.appendChild(anime)
-       }
+        }
 
        
 
