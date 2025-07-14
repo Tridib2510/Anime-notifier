@@ -12,10 +12,9 @@ A Chrome extension that keeps you updated with the latest anime releases. Never 
 ## 🚀 Installation
 
 ### From Chrome Web Store
-1. Visit the [Chrome Web Store](https://chrome.google.com/webstore) (link to be added)
-2. Search for "Anime-notifier"
-3. Click "Add to Chrome"
-4. Click "Add extension" to confirm
+1. Search for "Anime-notifier"
+2. Click "Add to Chrome"
+3. Click "Add extension" to confirm
 
 ### Manual Installation (Developer Mode)
 1. Download or clone this repository
