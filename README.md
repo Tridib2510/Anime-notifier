@@ -4,7 +4,6 @@ A Chrome extension that keeps you updated with the latest anime releases. Never 
 
 ## ✨ Features
 
-- **Daily Release Notifications**: Get notified when new anime episodes are released
 - **Real-time Updates**: Stay current with the latest anime releases
 - **Clean Interface**: Simple and intuitive design
 - **Lightweight**: Minimal impact on browser performance
@@ -51,22 +50,7 @@ cd anime-notifier
 npm install
 ```
 
-### File Structure
-```
-anime-notifier/
-├── manifest.json          # Extension manifest
-├── popup.html             # Extension popup interface
-├── popup.js               # Popup functionality
-├── background.js          # Background script
-├── content.js             # Content script
-├── styles/
-│   └── popup.css         # Popup styles
-├── icons/
-│   ├── icon16.png        # 16x16 icon
-│   ├── icon48.png        # 48x48 icon
-│   └── icon128.png       # 128x128 icon
-└── README.md             # This file
-```
+
 
 ### Building
 ```bash
@@ -96,48 +80,6 @@ We welcome contributions! Please follow these steps:
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-### Code Style
-- Use ESLint for JavaScript linting
-- Follow the existing code style
-- Add comments for complex logic
-- Test your changes thoroughly
-
-## 📋 Requirements
-
-- Chrome version 88 or higher
-- Internet connection for fetching anime data
-- Notification permissions (optional, for alerts)
-
-## 🐛 Known Issues
-
-- Occasionally, anime data might be delayed due to source API limitations
-- Some anime titles might not appear immediately after release
-
-## 📝 Changelog
-
-### v1.0.0
-- Initial release
-- Basic anime release notifications
-- Simple popup interface
-
-## 🙏 Acknowledgments
-
-- Thanks to all anime databases and APIs that make this extension possible
-- Special thanks to the anime community for feedback and support
-- Icons provided by [Icon Source]
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Support
-
-If you encounter any issues or have questions:
-
-- Create an issue on [GitHub Issues](https://github.com/yourusername/anime-notifier/issues)
-- Email: support@anime-notifier.com
-- Discord: [Join our community](https://discord.gg/anime-notifier)
 
 ## 🌟 Show Your Support
 
